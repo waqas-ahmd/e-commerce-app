@@ -6,6 +6,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     navigate(`/sign-in`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return <div>Home Screen</div>;
 };
