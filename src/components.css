@@ -1,0 +1,9 @@
+.input-container {
+  border: 1px solid rgb(110, 231, 183);
+  border-radius: 0px;
+  width: fit-content;
+}
+.input-container input {
+  outline: none;
+  border: none;
+}
