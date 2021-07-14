@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import InputContainer from "../Components/InputContainer";
 import Image from "../assets/cart.svg";
 import Layout from "../Components/Layout";
+import LinkContainer from "../Components/LinkContainer";
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState();
@@ -28,39 +29,35 @@ const RegisterScreen = () => {
         <div style={{ fontSize: "xx-large", fontWeight: "900", margin: 10 }}>
           Account Registration
         </div>
-        <InputContainer>
+        <InputContainer style={{ width: 400, maxWidth: "95%" }}>
           <input
             value={firstname}
             onChange={(e) => setFirstname(e.target.value)}
-            style={{ width: 400 }}
             type="text"
             placeholder="First Name"
           />
         </InputContainer>
-        <InputContainer>
+        <InputContainer style={{ width: 400, maxWidth: "95%" }}>
           <input
             value={lastname}
             onChange={(e) => setLastname(e.target.value)}
-            style={{ width: 400 }}
             type="text"
             placeholder="Last Name"
           />
         </InputContainer>
-        <InputContainer>
+        <InputContainer style={{ width: 400, maxWidth: "95%" }}>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={{ width: 400 }}
             type="text"
             placeholder="Email Address"
           />
         </InputContainer>
 
-        <InputContainer>
+        <InputContainer style={{ width: 400, maxWidth: "95%" }}>
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ width: 400 }}
             type="password"
             placeholder="Password"
           />
@@ -73,19 +70,22 @@ const RegisterScreen = () => {
             width: 410,
             marginBottom: 10,
             marginTop: 10,
+            maxWidth: "95%",
           }}
         >
           <div>
             <input type="checkbox" /> <label>Remember me</label>
           </div>
         </div>
-        <Button className="mt-1" style={{ width: 410 }}>
-          Sign In
+        <Button className="mt-1" style={{ width: 410, maxWidth: "95%" }}>
+          Sign Up
         </Button>
 
         <div className="mt-2">ALREADY HAVE ONE?</div>
 
-        <div className="my-1 t500 primaryColor">Login</div>
+        <LinkContainer to="/sign-in">
+          <div className="my-1 t500 primaryColor">Login</div>
+        </LinkContainer>
       </div>
     </Layout>
   );

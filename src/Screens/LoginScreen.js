@@ -4,6 +4,7 @@ import InputContainer from "../Components/InputContainer";
 import Image from "../assets/cart.svg";
 import Layout from "../Components/Layout";
 import { useNavigate } from "react-router";
+import LinkContainer from "../Components/LinkContainer";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState();
@@ -28,21 +29,19 @@ const LoginScreen = () => {
         <div style={{ fontSize: "xx-large", fontWeight: "900", margin: 10 }}>
           Welcome Back !
         </div>
-        <InputContainer>
+        <InputContainer style={{ width: 400, maxWidth: "95%" }}>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={{ width: 400 }}
             type="text"
             placeholder="Email Address"
           />
         </InputContainer>
 
-        <InputContainer>
+        <InputContainer style={{ width: 400, maxWidth: "95%" }}>
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ width: 400 }}
             type="password"
             placeholder="Password"
           />
@@ -53,6 +52,7 @@ const LoginScreen = () => {
             flexDirection: "row",
             justifyContent: "space-between",
             width: 410,
+            maxWidth: "95%",
             marginBottom: 10,
             marginTop: 10,
           }}
@@ -64,7 +64,7 @@ const LoginScreen = () => {
         </div>
         <Button
           className="mt-1"
-          style={{ width: 410 }}
+          style={{ width: 410, maxWidth: "95%" }}
           onClick={() => navigate("/products")}
         >
           Sign In
@@ -72,7 +72,9 @@ const LoginScreen = () => {
 
         <div className="mt-2">NEW HERE?</div>
 
-        <div className="my-1 t500 primaryColor">Create your Account</div>
+        <LinkContainer to="/sign-up">
+          <div className="my-1 t500 primaryColor">Create your Account</div>
+        </LinkContainer>
       </div>
     </Layout>
   );

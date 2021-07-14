@@ -1,21 +1,25 @@
-import React from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import React, { useState } from "react";
+import { Navbar } from "react-bootstrap";
 import LinkContainer from "./LinkContainer";
-import NavIcon from "./NavIcon";
-// import { FaCartPlus } from "react-icons/fa";
+// import NavIcon from "./NavIcon";
+import { IoMenuOutline } from "react-icons/io5";
 import Logo from "../assets/cart.svg";
+import AppMenu from "../Screens/AppMenu";
 
 const Layout = ({ children, title }) => {
+  const [menu, setMenu] = useState(false);
   return (
     <div className="layout">
+      <AppMenu show={menu} close={() => setMenu(false)} />
       <Navbar style={{ backgroundColor: "#ccc" }} expand="lg" className="p-2">
         <div
           style={{
-            width: "100%",
+            width: "99%",
             margin: "auto",
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <div
@@ -39,10 +43,11 @@ const Layout = ({ children, title }) => {
               />
             </Navbar.Brand>
           </LinkContainer>
-          <div className="ml-auto frcc">
-            <NavIcon tip="My Cart">
-              <Nav.Link>{/* <FaCartPlus size={22} /> */}</Nav.Link>
-            </NavIcon>
+          <div
+            style={{ cursor: "pointer", userSelect: "none" }}
+            onClick={() => setMenu(true)}
+          >
+            <IoMenuOutline size={30} color="#059669" />
           </div>
         </div>
       </Navbar>

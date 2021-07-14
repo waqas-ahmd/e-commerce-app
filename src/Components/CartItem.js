@@ -1,10 +1,9 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { BsHeartFill } from "react-icons/bs";
-import { FaCartPlus } from "react-icons/fa";
 import LinkContainer from "./LinkContainer";
+import { IoAdd, IoRemove } from "react-icons/io5";
 
-const ProductCard = ({ product, addToCart }) => {
+const CartItem = ({ item, add, remove }) => {
   return (
     <div
       style={{
@@ -31,7 +30,7 @@ const ProductCard = ({ product, addToCart }) => {
             objectFit: "cover",
             backgroundColor: "#ddd",
           }}
-          src={product.image}
+          src={item.image}
           alt="productImage"
         />
       </div>
@@ -53,19 +52,19 @@ const ProductCard = ({ product, addToCart }) => {
             justifyContent: "space-between",
           }}
         >
-          <LinkContainer to={`/product/${product.id}`}>
-            <div className="primaryColor t500">{product.title}</div>
+          <LinkContainer to={`/product/${item.id}`}>
+            <div className="primaryColor t500">{item.title}</div>
           </LinkContainer>
 
-          <div>Rs.{product.price}</div>
+          <div>Rs.{item.price}</div>
         </div>
-        <div>InStock</div>
+        <div>Qty: {item.qty}</div>
         <div style={{ display: "flex", width: "100%" }}>
-          <Button style={{ flex: 1 }}>
-            <BsHeartFill />
+          <Button onClick={remove} style={{ flex: 1 }}>
+            <IoRemove size={24} color="#fff" />
           </Button>
-          <Button onClick={addToCart} style={{ flex: 1, marginLeft: 5 }}>
-            <FaCartPlus />
+          <Button onClick={add} style={{ flex: 1, marginLeft: 5 }}>
+            <IoAdd size={24} color="#fff" />
           </Button>
         </div>
       </div>
@@ -73,4 +72,4 @@ const ProductCard = ({ product, addToCart }) => {
   );
 };
 
-export default ProductCard;
+export default CartItem;
