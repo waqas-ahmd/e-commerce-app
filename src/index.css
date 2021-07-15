@@ -72,7 +72,8 @@ code {
   background-color: #059669ef;
   backdrop-filter: blur(3px);
   clip-path: circle(0.01% at 100% 0);
-  transition: all 0.3s ease;
+
+  /* transition: all 0.3s ease; */
   user-select: none;
 }
 
